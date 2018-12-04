@@ -1,0 +1,49 @@
+:host {
+  .right-bar {
+    background: #FFF;
+    padding-bottom: 10px;
+
+    .card {
+      background: #F8F8F8;
+      border: 0.5px solid #CECECE;
+      border-radius: 0;
+      float: left;
+      margin: 10px 5px 0 5px;
+      max-width: 200px;
+      min-height: 222px;
+      padding: 0;
+
+      .card-body {
+        input {
+          background: transparent;
+          border:none;
+          height: 25px;
+          width: 160px;
+        }
+
+        input:focus {
+          background: #fff;
+          border:0.5px solid #ddd;
+          font-style: italic;
+          outline:none;
+          padding: 0 8px;
+        }
+      }
+
+      i {
+        border: 0.5px solid #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        color: #fff;
+        font-size: 13px;
+        height: 30px;
+        line-height: 30px;
+        position:absolute;
+        right: 5px;
+        text-align:center;
+        top: 5px;
+        width: 30px;
+      }
+    }
+  }
+}
