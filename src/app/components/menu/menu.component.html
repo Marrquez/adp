@@ -1,3 +1,5 @@
 <span>
-  Welcome to AdP!
+  AdP!
 </span>
+
+<div *ngIf="authService.data.logged">Welcome {{ authService.data.logged }} | <a (click)="logoutUser()">logout</a></div>

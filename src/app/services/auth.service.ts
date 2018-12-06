@@ -1,21 +1,25 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
   public data = {logged: false};
-  constructor(public authService:AngularFireAuth){
+  constructor(
+    public authService:AngularFireAuth,
+    public router:Router
+  ){
     var self = this;
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log("A");
-        self.data.logged = true;
+        this.data.logged = true;
       } else {
         console.log("B");
-        self.data.logged = false;
+        this.data.logged = false;
       }
-    });
+    }.bind(this));
   }
 
   /**
@@ -52,7 +56,17 @@ export class AuthService {
       firebase.auth().signInWithEmailAndPassword(value.email, value.password)
         .then(res => {
           resolve(res);
+          this.navigate("dashboard");
         }, err => reject(err))
     })
+  }
+
+  navigate(view:string){
+    this.router.navigate([view, {}]);
+  }
+
+  logoutUser(){
+    firebase.auth().signOut();
+    this.router.navigate(['/'])
   }
 }
