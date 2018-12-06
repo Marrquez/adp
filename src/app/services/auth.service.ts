@@ -5,68 +5,56 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  public data = {logged: false};
+  public data = {logged: false, email: ''};
+  authState: any = null;
+
   constructor(
-    public authService:AngularFireAuth,
-    public router:Router
-  ){
-    var self = this;
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        console.log("A");
+    private afAuth: AngularFireAuth,
+    private router: Router
+  ) {
+    this.afAuth.authState.subscribe((auth) => {
+      if(auth){
+        this.authState = auth;
         this.data.logged = true;
-      } else {
-        console.log("B");
+        this.data.email = auth.email;
+      }else{
+        this.authState = null;
         this.data.logged = false;
+        this.data.email = "";
       }
-    }.bind(this));
+    });
   }
 
-  /**
-   * log in user with google
-   * */
-  doGoogleLogin(){
-    return new Promise<any>((resolve, reject) => {
-      let provider = new firebase.auth.GoogleAuthProvider();
-      this.authService.auth
-        .signInWithPopup(provider)
-        .then(res => {
-          resolve(res);
-        })
-    })
+  signUpWithEmail(email: string, password: string) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then((user) => {
+        this.authState = user
+      })
+      .catch(error => {
+        console.log(error)
+        throw error
+      });
   }
 
-  /**
-   * register user
-   * */
-  registerUser(value){
-    return new Promise<any>((resolve, reject) => {
-      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
-        .then(res => {
-          resolve(res);
-        }, err => reject(err))
-    })
+  loginWithEmail(email: string, password: string) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((data) => {
+        //this.authState = data;
+        //this.data.email = data.user.email;
+      })
+      .catch(error => {
+        //console.log(error)
+        //this.data.email = '';
+        throw error
+      });
   }
 
-  /**
-   * log in user
-   * */
-  loginUser(value){
-    return new Promise<any>((resolve, reject) => {
-      firebase.auth().signInWithEmailAndPassword(value.email, value.password)
-        .then(res => {
-          resolve(res);
-          this.navigate("dashboard");
-        }, err => reject(err))
-    })
+  signOut(): void {
+    this.afAuth.auth.signOut();
+    this.router.navigate(['/'])
   }
 
   navigate(view:string){
-    this.router.navigate([view, {}]);
-  }
-
-  logoutUser(){
-    firebase.auth().signOut();
-    this.router.navigate(['/'])
+    this.router.navigate([view]);
   }
 }

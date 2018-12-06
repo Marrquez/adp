@@ -24,14 +24,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   loginUser(value){
-    this.authService.loginUser(value).then(res => {
-      console.log(res);
-      this.errorMessage = "";
-      this.successMessage = "The user has been logged in";
-    }, err => {
-      console.log(err);
-      this.errorMessage = err.message;
-      this.successMessage = "";
-    })
+    this.authService.loginWithEmail(value.email, value.password)
+      .then(() => {
+        this.authService.navigate("dashboard")
+      }).catch(_error => {
+        this.errorMessage = _error;
+        this.authService.navigate('/');
+      });
   }
 }

@@ -18,6 +18,6 @@ export class MenuComponent implements OnInit {
   }
 
   logoutUser(){
-    this.authService.logoutUser();
+    this.authService.signOut();
   }
 }

@@ -2,4 +2,4 @@
   AdP!
 </span>
 
-<div *ngIf="authService.data.logged">Welcome {{ authService.data.logged }} | <a (click)="logoutUser()">logout</a></div>
+<span *ngIf="authService.data.logged">Welcome {{ authService.data.email }} | <a (click)="logoutUser()">logout</a></span>
