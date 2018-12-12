@@ -1,7 +1,61 @@
 :host {
+  .empty.row {
+    min-height: 300px;
+
+    div {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .actions {
+    button {
+      color: #3F8DBF;
+      float:right;
+      font-size: 14px;
+      padding: 0 0 0 30px;
+      position: relative;
+      height: 30px;
+      line-height: 30px;
+      width: 100px;
+
+      i {
+        box-sizing: border-box;
+        color: #3F8DBF;
+        cursor: pointer;
+        font-size: 16px;
+        height: 30px;
+        line-height: 30px;
+        left: 0;
+        line-height: 30px;
+        position: absolute;
+        right: auto;
+        text-align: center;
+        top: 0;
+        width: 30px;
+      }
+    }
+
+
+    .add-btn {
+      background-color: #3F8DBF !important;
+      color: #FFF !important;
+      cursor: pointer;
+      font-size: 14px;
+      float: left;
+      height: 30px;
+      line-height: 30px;
+      margin: 0 5px;
+      text-align: center;
+      width: 130px;
+    }
+  }
+
   .right-bar {
     background: #FFF;
     padding-bottom: 10px;
+    margin-top: 5px;
+    min-height: 350px;
 
     .card {
       background: #F8F8F8;
@@ -17,6 +71,8 @@
         input {
           background: transparent;
           border:none;
+          color: #444;
+          font-size: 12px;
           height: 25px;
           width: 160px;
         }
@@ -43,6 +99,65 @@
         text-align:center;
         top: 5px;
         width: 30px;
+      }
+
+      i.fa-trash {
+        border: 1px solid #D74F28 !important;
+        color: #D74F28 !important;
+        background: #fff;
+      }
+    }
+  }
+
+  .left-bar {
+    .domain.selected {
+      input {
+        border: 1px solid #3F8DBF;
+        -webkit-box-shadow: 0px 0px 4px 0px rgba(63,141,191,1);
+        -moz-box-shadow: 0px 0px 4px 0px rgba(63,141,191,1);
+        box-shadow: 0px 0px 4px 0px rgba(63,141,191,1);
+      }
+    }
+
+    .domain {
+      padding: 5px;
+      position: relative;
+
+      input {
+        color: #73879C;
+        font-size: 14px;
+        height: 32px;
+        padding: 0 60px 0 10px;
+        width: 100%;
+      }
+
+      input:focus {
+        font-style: italic;
+      }
+
+      i {
+        cursor: pointer;
+        font-size: 12px;
+        height: 32px;
+        line-height: 32px;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        text-align: center;
+        width: 25px;
+      }
+
+      i.fa-plus {
+        right: 60px;
+      }
+
+      i.fa-eye {
+        right: 10px;
+      }
+
+      i.fa-trash {
+        color: #D74F28 !important;
+        right: 35px;
       }
     }
   }

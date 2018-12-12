@@ -1,19 +1,64 @@
-<p>
-  login user!
-</p>
-<form [formGroup]="loginForm">
-  <div class="form-group">
-    <label>Email address</label>
-    <input type="email" formControlName="email" class="form-control" required>
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <input type="password" class="form-control" formControlName="password" required>
-  </div>
-  <div>
-    <label class="error">{{errorMessage}}</label>
-    <label class="success">{{successMessage}}</label>
-  </div>
-  <button type="submit" (click)="loginUser(loginForm.value)" class="btn btn-default">Login</button>
-</form>
+<br />
+<section id="contact-form">
+  <div class="container inner">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 center-block text-center">
+        <header>
+          <h1>Iniciar Sesión</h1>
+          <p>Si presenta algún problema para ingresar, contacte a su Administrador</p>
+        </header>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+    <br />
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-6 outer-top-md inner-right-sm">
+            <h2>Datos de {{ formType }}</h2>
+            <p *ngIf="authService.data.logged">
+              Ingresaste como: {{authService.data.email}}
+              <br />
+              <button class="btn btn-small btn-blue" (click)="navigate('dashboard')">Ir al Area de Trabajo</button>
+              <button class="btn btn-small btn-gray" (click)="logoutUser()">Cerrar sesión</button>
+            </p>
+            <form *ngIf="!authService.data.logged" [formGroup]="loginForm">
+              <div class="form-group">
+                <label class="small">Correo Electrónico</label>
+                <input type="email" formControlName="email" class="form-control col-sm-6" required>
+              </div>
+              <div class="form-group">
+                <label class="small">Contraseña</label>
+                <input type="password" class="form-control col-sm-6" formControlName="password" required>
+              </div>
+              <div>
+                <label class="error">{{errorMessage}}</label>
+                <label class="success">{{successMessage}}</label>
+              </div>
+              <div *ngIf="formType==='Ingreso'">
+                <button type="submit" (click)="loginUser(loginForm.value)" class="btn btn-small btn-blue">Ingresar</button>
+              </div>
+              <div *ngIf="formType==='Registro'">
+                <button type="submit" (click)="registerUser(loginForm.value)" class="btn btn-small btn-blue">Registrarme</button>
+                <button type="submit" (click)="goBack()" class="btn btn-small btn-gray">Cancelar</button>
+              </div>
+              <span *ngIf="formType==='Ingreso'" class="small">No tienes una cuenta? <a (click)="showRegisterForm()">Registrarme</a></span>
+            </form>
+            <div id="response"></div>
+          </div><!-- ./col -->
+          <div class="col-sm-6 outer-top-md inner-left-sm border-left">
+            <h2>Recuerda</h2>
+            <p>Todos los derechos reservados, el administrador del sistema se reserva el derecho de admisión y administración de los usuarios del sistema.</p>
 
+            <h3>Más info</h3>
+            <ul class="contacts">
+              <li><i class="fas fa-map-marker-alt contact"></i> Carrera 69 NO. 25B-44, Bogotá, Colombia</li>
+              <li><i class="fas fa-mobile-alt contact"></i> +57 (1) 348 77 77</li>
+              <li><a href="mailto:info@reen.com"><i class="fas fa-envelope contact"></i> centrodeservicios@ssf.gov.co</a></li>
+            </ul><!-- /.contacts -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section>
+<br/>

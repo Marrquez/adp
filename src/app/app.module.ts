@@ -6,22 +6,17 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-/**
- * modules
- * */
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-
-/**
- * services
- * */
 import { AuthService } from './services/auth.service';
+import { DomainService } from './services/domain.service';
+import { GetLinksPipe } from './pipes/get-links.pipe';
+import { GetDomainsPipe } from './pipes/get-domains.pipe';
+import { LinkSanitizerPipe } from './pipes/link-sanitizer.pipe';
 
 @NgModule({
   declarations: [
@@ -30,19 +25,20 @@ import { AuthService } from './services/auth.service';
     MenuComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    GetLinksPipe,
+    GetDomainsPipe,
+    LinkSanitizerPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule,
-    ReactiveFormsModule,
-    AngularFireDatabaseModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, DomainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  public data = {logged: false, email: ''};
+  public data = {logged: false, email: '', admin: false, adminUser: ''};
   authState: any = null;
 
   constructor(

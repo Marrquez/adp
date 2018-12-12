@@ -1,5 +1,562 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   background: #FBFBFB;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #73879C;
+  font-size: 16px;
+  line-height: 150%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  /*-moz-osx-font-smoothing: grayscale;*/
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden !important;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+:focus {
+  outline: 0 !important;
+}
+figure {
+  margin: 0;
+  padding: 0;
+}
+figure img {
+  width: 100%;
+  height: auto;
+}
+figure :not(.icon-overlay) a:hover,
+figure:not(.icon-overlay) > a:hover {
+  opacity: .7;
+}
+img[src*=".svg"] {
+  height: 100%;
+}
+iframe {
+  border: none;
+}
+* > p:last-child {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+::selection {
+  background: #AAF2E4; /* Safari */
+  color: #506A85;
+}
+::-moz-selection {
+  background: #AAF2E4; /* Firefox */
+  color: #506A85;
+}
+.animate {
+  transition: all 0.1s ease-out; /* Optionally cubic-bezier(0.215, 0.610, 0.355, 1.000) which is easeOutCubic */
+  -webkit-transform: translateZ(0); /* Enables hardware accelerated transitions for transform, opacity and filter properties on browsers with webkit engines — optionally will-change */
+  -webkit-backface-visibility: hidden; /* Fixes transition flickering in Chrome and Safari */
+}
+.navbar,
+main {
+  background-color: #FFF;
+}
+main:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: #ffffff;
+  transition: 0.4s ease-out 0.2s;
+  transition-property: opacity, visibility;
+}
+main.js-reveal:before {
+  opacity: 0;
+  visibility: hidden;
+}
+.container {
+  padding-right: 0;
+  padding-left: 0;
+}
+p {
+  margin-bottom: 20px;
+}
+p a {
+  border-bottom: 1px solid #73879C;
+}
+p a:hover {
+  border-color: transparent;
+}
+a {
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  -webkit-transform: translateZ(0); /* Enables hardware accelerated transitions for transform, opacity and filter properties on browsers with webkit engines — optionally will-change */
+  -webkit-backface-visibility: hidden; /* Fixes transition flickering in Chrome and Safari */
+}
+a:hover,
+a:focus {
+  color: #1ABB9C;
+  text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  color: #506A85;
+  margin-top: 0;
+  /*word-wrap: break-word;*/
+}
+h1 {
+  font-size: 40px;
+  line-height: 130%;
+  margin-bottom: 25px;
+}
+h2 {
+  font-size: 22px;
+  line-height: 130%;
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 18px;
+  line-height: 150%;
+  margin-bottom: 15px;
+}
+h4 {
+  font-size: 14px;
+  line-height: 150%;
+  margin-bottom: 15px;
+}
+h5 {
+  font-size: 12px;
+  line-height: 160%;
+  margin-bottom: 13px;
+}
+h6 {
+  font-size: 10px;
+  line-height: 160%;
+  margin-bottom: 10px;
+}
+/*a .logo {
+	transition: all 0.2s ease-out;
+}*/
+a:hover .logo {
+  opacity: .6;
+}
+a.green:hover {
+  background: #1ABB9C !important;
+}
+a.blue:hover {
+  background: #3F8DBF !important;
+}
+a.red:hover {
+  background: #FA6C65 !important;
+}
+a.orange:hover {
+  background: #F27A24 !important;
+}
+a.purple:hover {
+  background: #9B59B6 !important;
+}
+a.pink:hover {
+  background: #D487BE !important;
+}
+a.navy:hover {
+  background: #34495E !important;
+}
+a.gray:hover {
+  background: #95A5A6 !important;
+}
+ol {
+  position: relative;
+  padding-left: 22px;
+}
+ul {
+  list-style: none;
+  position: relative;
+  padding-left: 22px;
+}
+ul.arrowed li,
+ul.circled li,
+ol li {
+  margin-bottom: 5px;
+}
+
+ul.contacts {
+  padding-left: 0;
+}
+ul.contacts li {
+  margin-bottom: 5px;
+}
+footer ul.contacts li {
+  margin-bottom: 2px;
+}
+/*===================================================================================*/
+/*	BUTTONS
+/*===================================================================================*/
+
+#buttons .btn {
+  margin: 5px 3px;
+}
+#buttons .btn-wrapper {
+  margin: 30px 0;
+}
+.btn {
+  color: #FFF !important;
+  background: #1ABB9C;
+  padding: 11px 20px 13px;
+  margin: 15px 5px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-shadow: none;
+  -webkit-font-smoothing: antialiased;
+  border: none;
+  -webkit-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15);
+  -moz-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15);
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15);
+}
+.btn-small {
+  padding: 5px 13px 6px;
+  font-size: 13px;
+}
+.btn-large {
+  padding: 14px 26px 16px;
+  font-size: 15px;
+}
+.btn.btn-green {
+  background: #1ABB9C;
+}
+.btn.btn-blue {
+  background: #3F8DBF;
+}
+.btn.btn-red {
+  background: #FA6C65;
+}
+.btn.btn-pink {
+  background: #D487BE;
+}
+.btn.btn-purple {
+  background: #9B59B6;
+}
+.btn.btn-orange {
+  background: #F27A24;
+}
+.btn.btn-navy {
+  background: #34495E;
+}
+.btn.btn-gray {
+  background: #95A5A6;
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active {
+  background: #17A78B;
+  color: #FFF !important;
+  -webkit-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15);
+  -moz-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15);
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15);
+}
+.btn-green:hover,
+.btn-green:focus,
+.btn-green:active,
+.btn-green.active {
+  background: #17A78B !important;
+}
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue:active,
+.btn-blue.active {
+  background: #387EAA !important;
+}
+.btn-red:hover,
+.btn-red:focus,
+.btn-red:active,
+.btn-red.active {
+  background: #CF4C45 !important;
+}
+.btn-pink:hover,
+.btn-pink:focus,
+.btn-pink:active,
+.btn-pink.active {
+  background: #BD78A9 !important;
+}
+.btn-purple:hover,
+.btn-purple:focus,
+.btn-purple:active,
+.btn-purple.active {
+  background: #8A4FA2 !important;
+}
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active {
+  background: #D96716 !important;
+}
+.btn-navy:hover,
+.btn-navy:focus,
+.btn-navy:active,
+.btn-navy.active {
+  background: #2C3E50 !important;
+}
+.btn-gray:hover,
+.btn-gray:focus,
+.btn-gray:active,
+.btn-gray.active {
+  background: #859394 !important;
+}
+.tint-bg .btn {
+  background: #FFF !important;
+  color: #1ABB9C !important;
+}
+.tint-bg .btn:hover {
+  background: #E9E9E9 !important;
+  color: #506A85 !important;
+}
+.btn.share-facebook {
+  background: #3d5b9b !important
+}
+.btn.share-facebook:hover {
+  background: #334c8e !important
+}
+.btn.share-twitter {
+  background: #5aa8cd !important
+}
+.btn.share-twitter:hover {
+  background: #499ac8 !important
+}
+.btn.share-googleplus {
+  background: #3b3b3b !important
+}
+.btn.share-googleplus:hover {
+  background: #2e2e2e !important
+}
+.btn.share-pinterest {
+  background: #c53942 !important
+}
+.btn.share-pinterest:hover {
+  background: #bc2d32 !important
+}
+.btn-share-lg,
+.btn-share-md,
+.btn-share-sm,
+.btn-share-xs {
+  display: table;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  text-align: center;
+}
+.btn-share-lg i,
+.btn-share-md i,
+.btn-share-sm i,
+.btn-share-xs i {
+  display: table-cell;
+  vertical-align: middle;
+}
+.btn-share-lg {
+  height: 250px;
+}
+.btn-share-lg i {
+  font-size: 80px;
+}
+.btn-share-md {
+  height: 180px;
+}
+.btn-share-md i {
+  font-size: 60px;
+}
+.btn-share-sm {
+  height: 120px;
+}
+.btn-share-sm i {
+  font-size: 40px;
+}
+.btn-share-xs {
+  height: 80px;
+}
+.btn-share-xs i {
+  font-size: 28px;
+}
+.btn-share-lg i:after,
+.btn-share-md i:after,
+.btn-share-sm i:after,
+.btn-share-xs i:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+/*.btn-share-lg:hover i:after,
+.btn-share-md:hover i:after,
+.btn-share-sm:hover i:after,
+.btn-share-xs:hover i:after {
+	height: 100%;
+}*/
+.btn-share-lg:hover .icon-s-facebook:after,
+.btn-share-md:hover .icon-s-facebook:after,
+.btn-share-sm:hover .icon-s-facebook:after,
+.btn-share-xs:hover .icon-s-facebook:after {
+  background: #3B5998;
+  background: #4668B3;
+}
+.btn-share-lg:hover .icon-s-gplus:after,
+.btn-share-md:hover .icon-s-gplus:after,
+.btn-share-sm:hover .icon-s-gplus:after,
+.btn-share-xs:hover .icon-s-gplus:after {
+  background: #DD4B39;
+  background: #DE5745;
+}
+.btn-share-lg:hover .icon-s-twitter:after,
+.btn-share-md:hover .icon-s-twitter:after,
+.btn-share-sm:hover .icon-s-twitter:after,
+.btn-share-xs:hover .icon-s-twitter:after {
+  background: #00ACED;
+  background: #2FBBED;
+}
+.btn-share-lg p,
+.btn-share-md p,
+.btn-share-sm p,
+.btn-share-xs p {
+  position: absolute;
+  height: 1.1em;
+  font-family: 'Lato', sans-serif;
+  line-height: 100%;
+  color: #FFF;
+  margin: auto;
+  opacity: 0;
+}
+.btn-share-lg p,
+.btn-share-md p {
+  top: 20px;
+}
+.btn-share-sm p,
+.btn-share-xs p {
+  top: 0;
+  bottom: 0;
+}
+.btn-share-sm p {
+  font-size: 16px;
+}
+.btn-share-xs p {
+  font-size: 15px;
+}
+.btn-share-lg:hover p,
+.btn-share-md:hover p,
+.btn-share-sm:hover p,
+.btn-share-xs:hover p {
+  opacity: 1;
+}
+.btn-share-lg .name,
+.btn-share-md .name,
+.btn-share-sm .name,
+.btn-share-xs .name {
+  left: 25px;
+}
+.btn-share-lg .counter,
+.btn-share-md .counter,
+.btn-share-sm .counter,
+.btn-share-xs .counter {
+  right: 25px;
+}
+.btn-share-lg:hover,
+.btn-share-md:hover,
+.btn-share-sm:hover,
+.btn-share-xs:hover {
+  color: #FFF;
+}
+h1 .btn,
+h2 .btn,
+h3 .btn,
+h4 .btn,
+p .btn {
+  margin-left: 15px;
+}
+.txt-btn {
+  font-size: 105%;
+  font-weight: 700;
+}
+.txt-btn:after {
+  font-family: 'fontello';
+  font-size: 75%;
+  content: '\e846';
+  margin-left: 7px;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+.txt-btn:hover:after {
+  margin-left: 12px;
+}
+
+/**LABELS*/
+.green-bg {
+  background-color: #1ABB9C !important;
+  color: #FFF !important;
+  padding: 2px 8px 4px;
+  margin-top: -2px;
+}
+.blue-bg {
+  background-color: #3F8DBF !important;
+  color: #FFF !important;
+  padding: 2px 8px 4px;
+  margin-top: -2px;
+}
+.red-bg {
+  background-color: #FA6C65 !important;
+  color: #FFF !important;
+  padding: 2px 8px 4px;
+  margin-top: -2px;
+}
+.orange-bg {
+  background-color: #F27A24 !important;
+  color: #FFF !important;
+  padding: 2px 8px 4px;
+  margin-top: -2px;
+}
+.purple-bg {
+  background-color: #9B59B6 !important;
+  color: #FFF !important;
+  padding: 2px 8px 4px;
+  margin-top: -2px;
+}
+.pink-bg {
+  background-color: #D487BE !important;
+  color: #FFF !important;
+  padding: 2px 8px 4px;
+  margin-top: -2px;
+}
+.navy-bg {
+  background-color: #34495E !important;
+  color: #FFF !important;
+  padding: 2px 8px 4px;
+  margin-top: -2px;
+}
+.gray-bg {
+  background-color: #95A5A6 !important;
+  color: #FFF !important;
+  padding: 2px 8px 4px;
+  margin-top: -2px;
+}
+.light-bg {
+  background-color: #F2F5F7;
 }

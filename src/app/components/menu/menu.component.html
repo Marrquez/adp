@@ -1,5 +1,30 @@
-<span>
-  AdP!
-</span>
+<div class="navbar">
+  <div class="navbar-header">
+    <div class="container">
+      <ul class="info pull-left">
+        <li><img src="./assets/images/ssf_logo.png" alt=""></li>
+        <li><img src="./assets/images/gobierno_de_colombia.png" alt=""></li>
+      </ul><!-- /.info -->
+      <ul class="social pull-right">
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+      </ul><!-- /.social -->
+    </div><!-- /.container -->
+  </div>
+  <div class="yamm brand">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/images/ssf_adp_logo.png" class="logo animate" alt="" style="height: 40px;">
+      </a>
+      <ul class="user-info">
+        <li *ngIf="authService.data.logged" class="user-info__status">
+          <span>Welcome {{ authService.data.email }}</span>
+          <span class="small" (click)="logoutUser()">Salir</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-<span *ngIf="authService.data.logged">Welcome {{ authService.data.email }} | <a (click)="logoutUser()">logout</a></span>
+
