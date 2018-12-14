@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
  * */
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RestoreComponent } from './components/restore/restore.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: LoginComponent
+  },
+  {
+    path: 'restore',
+    component: RestoreComponent
   },
   {
     path: '',

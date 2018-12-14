@@ -36,6 +36,16 @@ export class AuthService {
       });
   }
 
+  resetEmail(email: string) {
+    return this.afAuth.auth.sendPasswordResetEmail(email)
+      .then(() => {
+        //console.log("email sent");
+      })
+      .catch((error) => {
+        throw error
+      });
+  }
+
   loginWithEmail(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((data) => {

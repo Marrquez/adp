@@ -17,6 +17,7 @@ import { DomainService } from './services/domain.service';
 import { GetLinksPipe } from './pipes/get-links.pipe';
 import { GetDomainsPipe } from './pipes/get-domains.pipe';
 import { LinkSanitizerPipe } from './pipes/link-sanitizer.pipe';
+import { RestoreComponent } from './components/restore/restore.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LinkSanitizerPipe } from './pipes/link-sanitizer.pipe';
     LoginComponent,
     GetLinksPipe,
     GetDomainsPipe,
-    LinkSanitizerPipe
+    LinkSanitizerPipe,
+    RestoreComponent
   ],
   imports: [
     BrowserModule,
