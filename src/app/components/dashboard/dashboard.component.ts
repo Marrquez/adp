@@ -14,6 +14,8 @@ import { AuthService } from '../../services/auth.service';
 export class DashboardComponent implements OnInit {
   private items:Array<any> = [];
   public documentId = "lM4ZE7zpppIC7UMMMZPc";
+  private successMsg = "";
+  private errorMsg = "";
   constructor(
     private domain:DomainService,
     private authService:AuthService
@@ -21,7 +23,7 @@ export class DashboardComponent implements OnInit {
     this.domain.currentItem = "";
     this.domain.getDomains().subscribe((domainsSnapshot) => {
       domainsSnapshot.forEach((domainData: any) => {
-        this.items = JSON.parse(domainData.payload.doc.data().dList);
+        this.items = domainData.payload.doc.data().dList ? JSON.parse(domainData.payload.doc.data().dList) : [];
         this.authService.data.admin = this.authService.data.email === domainData.payload.doc.data().admin;
       })
     });
@@ -95,8 +97,18 @@ export class DashboardComponent implements OnInit {
       admin: this.authService.data.email
     }
     this.domain.updateDomains(this.documentId, data).then(() => {
+      this.successMsg = "¡Los datos se han guardado correctamente!";
+      this.errorMsg = "";
+      setTimeout(function(){
+        this.successMsg = "";
+      }.bind(this), 4000);
     }, (error) => {
-      console.log(error);
+      this.successMsg = "";
+      this.errorMsg = "Ha habido un error en el guardado de los datos";
+
+      setTimeout(function(){
+        this.errorMsg = "";
+      }.bind(this), 4000);
     });
   }
 

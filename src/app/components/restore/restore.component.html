@@ -1,0 +1,45 @@
+<br />
+<section id="contact-form">
+  <div class="container inner">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 center-block text-center">
+        <header>
+          <h1>Restablecer contraseña</h1>
+          <p>Enviaremos un email con un link desde el cual podrás configurar una nueva contraseña</p>
+        </header>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+    <br />
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12 outer-top-md">
+            <form class="col-sm-6" [formGroup]="recoverForm">
+              <div class="form-group">
+                <label class="small">Correo Electrónico</label>
+                <input type="email"
+                       formControlName="email"
+                       class="form-control col-sm-6"
+                       required
+                       placeholder="example@mail.com"
+                       pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                >
+              </div>
+              <div class="msgs col-sm-12">
+                <label class="error">{{errorMessage}}</label>
+                <label class="success">{{successMessage}}</label>
+              </div>
+              <div>
+                <button type="submit" (click)="sendEmail(recoverForm)"  class="btn btn-small btn-blue">Enviar</button>
+                <button type="submit" (click)="navigate('home')" class="btn btn-small btn-gray">Regresar</button>
+              </div>
+            </form>
+            <div id="response"></div>
+          </div><!-- ./col -->
+        </div><!-- /.row -->
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section>
+<br/>
+

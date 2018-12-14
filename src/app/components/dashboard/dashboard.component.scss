@@ -8,6 +8,34 @@
     }
   }
 
+  .error {
+    color: #D01D13;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 10px;
+    display: block;
+    float: left;
+    padding: 0 10px;
+    font-style: italic;
+    border-radius: 3px;
+  }
+
+  .success {
+    color: #006DA7;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 10px;
+    display: block;
+    float: left;
+    padding: 0 10px;
+    font-style: italic;
+    border-radius: 3px;
+  }
+
   .actions {
     button {
       color: #3F8DBF;

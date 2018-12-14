@@ -2,6 +2,8 @@
 <div class="row" *ngIf="this.authService.data.logged">
   <div class="actions col-sm-12 col-lg-12" *ngIf="this.authService.data.admin">
     <div (click)="addDomain()" class="add-btn">Agregar dominio</div>
+    <span class="msg success">{{ successMsg }}</span>
+    <span class="msg error">{{ errorMsg }}</span>
     <button (click)="saveData()">
       <i class="far fa-save"></i>
       Guardar

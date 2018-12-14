@@ -24,13 +24,17 @@
             <form *ngIf="!authService.data.logged" [formGroup]="loginForm">
               <div class="form-group">
                 <label class="small">Correo Electrónico</label>
-                <input type="email" formControlName="email" class="form-control col-sm-6" required>
+                <input type="email"
+                       formControlName="email"
+                       class="form-control col-sm-6"
+                       required
+                       placeholder="example@mail.com">
               </div>
               <div class="form-group">
                 <label class="small">Contraseña</label>
                 <input type="password" class="form-control col-sm-6" formControlName="password" required>
               </div>
-              <div>
+              <div class="col-sm-8">
                 <label class="error">{{errorMessage}}</label>
                 <label class="success">{{successMessage}}</label>
               </div>
@@ -42,6 +46,8 @@
                 <button type="submit" (click)="goBack()" class="btn btn-small btn-gray">Cancelar</button>
               </div>
               <span *ngIf="formType==='Ingreso'" class="small">No tienes una cuenta? <a (click)="showRegisterForm()">Registrarme</a></span>
+              <br />
+              <span *ngIf="formType==='Ingreso'" class="small">No recuerdas tu contraseña? <a (click)="navigate('restore')">Recuperar contraseña</a></span>
             </form>
             <div id="response"></div>
           </div><!-- ./col -->
